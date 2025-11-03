@@ -1,0 +1,21 @@
+<tui-root [attr.tuiTheme]="theme()">
+  <header tuiNavigationHeader>
+    <img
+      tuiNavigationLogo
+      src="https://static.tildacdn.com/tild3962-3334-4462-b764-396235383361/_.svg"
+      alt=""
+    />
+    <hgroup
+      tuiTitle
+      tuiFade
+    >
+      <h1>Тестовое задание</h1>
+      <p tuiSubtitle>Просмотр документов</p>
+    </hgroup>
+
+    <cw-theme-switcher (themeChange)="theme.set($event)" />
+  </header>
+  <main tuiNavigationMain>
+    <router-outlet />
+  </main>
+</tui-root>

@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  router-outlet {
+    display: contents;
+
+    &::ng-deep {
+      + * {
+        height: 100%;
+      }
+    }
+  }
+}

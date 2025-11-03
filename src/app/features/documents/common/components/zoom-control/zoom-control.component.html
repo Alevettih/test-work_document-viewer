@@ -1,0 +1,27 @@
+<button
+  [disabled]="isZoomInDisabled()"
+  (click)="zoomIn()"
+  iconStart="@tui.plus"
+  tuiIconButton
+  appearance="flat-grayscale"
+  type="button"
+  size="s"
+>
+  Увеличить
+</button>
+
+<span>
+  {{ zoom() }}%
+</span>
+
+<button
+  [disabled]="isZoomOutDisabled()"
+  (click)="zoomOut()"
+  iconStart="@tui.minus"
+  tuiIconButton
+  appearance="flat-grayscale"
+  type="button"
+  size="s"
+>
+  Уменьшить
+</button>

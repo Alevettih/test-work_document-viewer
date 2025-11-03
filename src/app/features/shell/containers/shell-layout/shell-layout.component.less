@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+tui-root {
+  &::ng-deep {
+    .t-root-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  }
+
+  &:not([tuiTheme='dark']) {
+    border-image: conic-gradient(var(--tui-background-base-alt) 0 0) fill 0 / 0 / 0 0 100vh 0;
+  }
+}
+
+cw-theme-switcher {
+  display: block;
+  margin-inline-start: auto;
+}
+
+main {
+  grid-template-rows: 1fr;
+  height: calc(100vh - 48px);
+}
+
+router-outlet {
+  display: contents;
+
+  &::ng-deep {
+    + * {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

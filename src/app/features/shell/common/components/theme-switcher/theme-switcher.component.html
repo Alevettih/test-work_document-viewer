@@ -1,0 +1,10 @@
+<button
+  [iconStart]="`@tui.${theme() === 'dark' ? 'sun' : 'moon'}`"
+  (click)="toggleTheme(theme())"
+  tuiIconButton
+  appearance="flat-grayscale"
+  type="button"
+  size="s"
+>
+  Переключить тему
+</button>

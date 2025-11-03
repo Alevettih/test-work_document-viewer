@@ -1,0 +1,22 @@
+<div
+  class="toolbar"
+  compact
+  tuiSubheader
+>
+  @if (leftGroup(); as group) {
+    <ng-template *ngTemplateOutlet="groupTemplate; context: { $implicit: group }" />
+  }
+
+  @if (rightGroup(); as group) {
+    <ng-template *ngTemplateOutlet="groupTemplate; context: { $implicit: group }" />
+  }
+</div>
+
+<ng-template
+  #groupTemplate
+  let-group
+>
+  <div class="group">
+    <ng-template *ngTemplateOutlet="group" />
+  </div>
+</ng-template>

@@ -3,6 +3,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@data/*": ["./src/app/data/*/index.ts"],
+      "@shared/*": ["./src/app/shared/*/index.ts"],
+      "@utils/*": ["./src/app/utils/*/index.ts"],
+      "@features/*": ["./src/app/features/*/index.ts"]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

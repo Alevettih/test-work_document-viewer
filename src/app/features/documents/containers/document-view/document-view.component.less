@@ -1,0 +1,23 @@
+
+tui-scrollbar {
+  inline-size: 100%;
+}
+
+.pages,
+.zoom-container {
+  display: flex;
+}
+
+.pages {
+  height: calc(var(--tui-viewport-height) - 3rem * 2);
+  overflow: auto;
+  margin: -1.5rem;
+  margin-block-start: 0;
+}
+
+.zoom-container {
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  gap: var(--tui-padding-s);
+}

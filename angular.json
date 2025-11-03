@@ -2,24 +2,24 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "less",
+      "changeDetection": "OnPush",
+      "type": "component",
+      "prefix": "cw"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive",
+      "prefix": "cw"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    }
+  },
   "projects": {
     "clearway-test": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less",
-          "changeDetection": "OnPush",
-          "type": "component",
-          "prefix": "cw"
-        },
-        "@schematics/angular:directive": {
-          "type": "directive",
-          "prefix": "cw"
-        },
-        "@schematics/angular:service": {
-          "type": "service"
-        }
-      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -80,6 +80,9 @@
             "development": {
               "buildTarget": "clearway-test:build:development"
             }
+          },
+          "options": {
+            "proxyConfig": "./src/proxy.conf.ts"
           },
           "defaultConfiguration": "development"
         },
