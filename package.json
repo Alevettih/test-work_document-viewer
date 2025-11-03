@@ -11,6 +11,17 @@
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
+    "tabWidth": 2,
+    "semi": true,
+    "bracketSpacing": true,
+    "useTabs": false,
+    "quoteProps": "as-needed",
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "bracketSameLine": false,
+    "objectWrap": "preserve",
+    "singleAttributePerLine": true,
     "overrides": [
       {
         "files": "*.html",
@@ -28,6 +39,12 @@
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@taiga-ui/cdk": "^4.60.0",
+    "@taiga-ui/core": "^4.60.0",
+    "@taiga-ui/event-plugins": "^4.0.2",
+    "@taiga-ui/icons": "^4.60.0",
+    "@taiga-ui/kit": "^4.60.0",
+    "@taiga-ui/layout": "^4.60.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

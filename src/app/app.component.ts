@@ -1,11 +1,12 @@
+import { TuiRoot } from '@taiga-ui/core';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.less'
+  imports: [RouterOutlet, TuiRoot],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.less',
 })
 export class App {
   protected readonly title = signal('clearway-test');
