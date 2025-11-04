@@ -2,8 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   effect,
-  inject,
-  input,
   output,
   OutputEmitterRef,
   signal,

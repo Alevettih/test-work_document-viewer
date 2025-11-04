@@ -1,0 +1,30 @@
+:host {
+  cursor: pointer;
+}
+
+.annotation {
+  &::before,
+  &::after {
+    inline-size: 1rem;
+    block-size: 1rem;
+    margin: -0.5rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tui-padding-s);
+  inline-size: 12rem;
+
+  tui-scrollbar {
+    max-height: 10rem;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: inherit;
+  }
+}

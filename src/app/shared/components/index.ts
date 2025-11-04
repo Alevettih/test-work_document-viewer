@@ -1,6 +1,11 @@
+export { ContextedComponent } from './contexted/contexted.component';
+export { type ContextMenuItem, type ItemSelectedEvent } from './contexted/contexted.types';
+
 export { ErrorMessageComponent } from './error-message/error-message.component';
 
 export { ToolbarLeftDirective } from './toolbar/directives/toolbar-left.directive';
 export { ToolbarRightDirective } from './toolbar/directives/toolbar-right.directive';
 export { ToolbarComponent } from './toolbar/toolbar.component';
 export { ToolbarModule } from './toolbar/toolbar.module';
+
+export { ZoomComponent } from './zoom/zoom.component';

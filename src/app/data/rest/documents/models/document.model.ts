@@ -1,5 +1,5 @@
 import { EntityModel } from '@utils/models';
-import { DocumentPageModel } from './page.model';
+import { DocumentPageModel } from './document-page.model';
 
 export interface DocumentModel extends EntityModel {
   name: string;

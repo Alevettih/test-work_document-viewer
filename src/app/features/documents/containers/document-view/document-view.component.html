@@ -4,7 +4,7 @@
     <h3>{{ document().name }}</h3>
   </ng-template>
   <ng-template cwToolbarRight>
-    <cw-zoom-control (zoomChange)="zoom.set($event)" />
+    <cw-zoom (zoomChange)="zoom.set($event)" />
 
     <button
       tuiButton
@@ -20,19 +20,18 @@
 </cw-toolbar>
 
 <section class="pages">
-  <tui-scrollbar>
-    <div
-      class="zoom-container"
-      [style.zoom.%]="zoom()"
-    >
-      @for (page of pages(); track page.number) {
-        <cw-document-page [page]="page" />
-      } @empty {
-        <cw-error-message
-          heading="Пусто"
-          subheading="В документе отстутствуют страницы"
-        />
-      }
-    </div>
+  <tui-scrollbar cwDraggableScroller>
+    @for (page of pages(); track `${page.number}-${page.imageUrl}`) {
+      <cw-document-page
+        [style.zoom]="zoom()"
+        [page]="page"
+        (pageChange)="onPageChange($event)"
+      />
+    } @empty {
+      <cw-error-message
+        heading="Пусто"
+        subheading="В документе отстутствуют страницы"
+      />
+    }
   </tui-scrollbar>
 </section>

@@ -1,0 +1,33 @@
+<form [formGroup]="form" tuiForm>
+  <tui-textfield>
+    <label
+      tuiLabel
+      for="content"
+    >
+      Введите текст аннотации
+    </label>
+    <input
+      id="content"
+      placeholder="Введите текст аннотации"
+      tuiTextfield
+      formControlName="content"
+    />
+  </tui-textfield>
+  <tui-error
+    formControlName="content"
+    [error]="[] | tuiFieldError | async"
+  />
+
+  <footer>
+    <button
+      size="m"
+      tuiButton
+      appearance="accent"
+      type="button"
+      [disabled]="!canSubmit()"
+      (click)="submit()"
+    >
+      Сохранить
+    </button>
+  </footer>
+</form>

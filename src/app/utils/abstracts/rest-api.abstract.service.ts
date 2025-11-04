@@ -3,6 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { EntityModel, PageModel } from '@utils/models';
 import { Observable } from 'rxjs';
 
+/**
+ * Абстракция, для быстрого создания АПИ сервисов, ибо они обычно однотипны.
+ *
+ * по-хорошему, надо бы докинуть возможность указывать параметры запроса
+ * и контекст, но, для данного задания хватит и такого.
+ *
+ * P.S. - В идеале АПИ сервисы надо генерировать на основе схемы.
+ */
+
 @Injectable()
 export abstract class AbstractRestApiService<T extends EntityModel> {
   protected readonly http: HttpClient = inject(HttpClient);

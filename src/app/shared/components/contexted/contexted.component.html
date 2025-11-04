@@ -1,0 +1,33 @@
+<div
+  #dropdown="tuiDropdown"
+  tuiDropdownContext
+  [tuiDropdown]="contextMenu"
+  (click)="dropdown.toggle(false)"
+  (contextmenu)="lastContextEvent.set($event)"
+  (wheel.throttle~500ms)="dropdown.toggle(false)"
+>
+  <ng-content />
+</div>
+<ng-template #contextMenu>
+  <tui-data-list
+    role="menu"
+    tuiDataListDropdownManager
+    class="context-menu"
+    size="s"
+  >
+    @for (item of menuItems(); track item.id) {
+      <button
+        tuiOption
+        new
+        type="button"
+        (click)="onMenuItemClick(item); dropdown.toggle(false)"
+      >
+        {{ item.label }}
+        <tui-icon
+          class="icon"
+          [icon]="item.icon"
+        />
+      </button>
+    }
+  </tui-data-list>
+</ng-template>

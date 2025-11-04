@@ -1,0 +1,17 @@
+<cw-contexted
+  [menuItems]="menuItems"
+  (itemSelected)="onContextItemSelected($event)"
+  cwDraggableArea
+>
+  <ng-content />
+
+  @for (annotation of annotations(); track `${annotation.id}-${annotation.content}`) {
+    <cw-annotation
+      [cwDraggable]="annotation.position"
+      [annotation]="annotation"
+      (positionChange)="onAnnotationPositionChange(annotation, $event)"
+      (edit)="openEditAnnotationModal($event)"
+      (remove)="openDeleteAnnotationModal($event)"
+    />
+  }
+</cw-contexted>

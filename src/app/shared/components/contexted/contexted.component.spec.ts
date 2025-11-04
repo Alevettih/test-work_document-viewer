@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZoomControlComponent } from './zoom-control.component';
+import { ContextedComponent } from './contexted.component';
 
-describe('ZoomControlComponent', () => {
-  let component: ZoomControlComponent;
-  let fixture: ComponentFixture<ZoomControlComponent>;
+describe('ContextedComponent', () => {
+  let component: ContextedComponent;
+  let fixture: ComponentFixture<ContextedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZoomControlComponent]
+      imports: [ContextedComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ZoomControlComponent);
+    fixture = TestBed.createComponent(ContextedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

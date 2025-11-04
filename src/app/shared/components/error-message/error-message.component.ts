@@ -12,5 +12,5 @@ import { TuiIcon } from '@taiga-ui/core';
 export class ErrorMessageComponent {
   public readonly heading: InputSignal<string> = input.required<string>();
   public readonly subheading: InputSignal<string> = input.required<string>();
-  public readonly icon: InputSignal<string> = input<string>('triangle-alert');
+  public readonly icon: InputSignal<string> = input<string>('@tui.triangle-alert');
 }

@@ -1,0 +1,36 @@
+<tui-pulse
+  class="annotation"
+  tuiHintDescribe
+  tuiHintDirection="right"
+  [playing]="true"
+  [tuiHint]="hintTemplate"
+  [tuiHintHideDelay]="0"
+  [tuiHintShowDelay]="0"
+/>
+
+<ng-template #hintTemplate>
+  <div class="content">
+    <tui-scrollbar>{{ annotation().content }}</tui-scrollbar>
+
+    <footer>
+      <button
+        iconStart="@tui.trash"
+        tuiIconButton
+        appearance="flat-grayscale"
+        size="s"
+        (click)="remove.emit(annotation())"
+      >
+        Удалить
+      </button>
+      <button
+        iconStart="@tui.pencil"
+        tuiIconButton
+        appearance="flat-grayscale"
+        size="s"
+        (click)="edit.emit(annotation())"
+      >
+        Редактировать
+      </button>
+    </footer>
+  </div>
+</ng-template>

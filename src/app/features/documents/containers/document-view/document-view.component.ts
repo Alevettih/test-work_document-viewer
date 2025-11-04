@@ -1,18 +1,19 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
+  effect,
   inject,
   input,
   InputSignal,
   signal,
-  Signal,
   WritableSignal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DocumentModel, DocumentPageModel } from '@data/rest/documents';
-import { DocumentPageComponent, ZoomControlComponent } from '@features/documents/common/components';
-import { ErrorMessageComponent, ToolbarModule } from '@shared/components';
+import { DocumentPageComponent } from '@features/documents/common/components';
+import { ErrorMessageComponent, ToolbarModule, ZoomComponent } from '@shared/components';
+import { DraggableModule } from '@shared/directives';
+import { DraggableHelperService } from '@shared/services';
 import { TuiButton, TuiIcon, TuiScrollbar } from '@taiga-ui/core';
 import { TuiTextfield } from '@taiga-ui/core';
 import { TuiInputNumber } from '@taiga-ui/kit';
@@ -22,7 +23,7 @@ import { TuiInputNumber } from '@taiga-ui/kit';
   imports: [
     FormsModule,
     ErrorMessageComponent,
-    ZoomControlComponent,
+    ZoomComponent,
     DocumentPageComponent,
     ToolbarModule,
     TuiIcon,
@@ -30,20 +31,44 @@ import { TuiInputNumber } from '@taiga-ui/kit';
     TuiTextfield,
     TuiScrollbar,
     TuiButton,
+    DraggableModule,
   ],
   templateUrl: './document-view.component.html',
   styleUrl: './document-view.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DocumentViewComponent {
-  protected readonly zoom: WritableSignal<number> = signal<number>(100);
-  protected readonly pages: Signal<DocumentPageModel[]> = computed<DocumentPageModel[]>(
-    (): DocumentPageModel[] => this.document().pages,
-  );
+  private readonly draggableService: DraggableHelperService = inject(DraggableHelperService);
+
+  protected readonly zoom: WritableSignal<number> = signal<number>(1);
+  protected readonly pages: WritableSignal<DocumentPageModel[]> = signal<DocumentPageModel[]>([]);
 
   public readonly document: InputSignal<DocumentModel> = input.required<DocumentModel>();
 
+  constructor() {
+    effect((): void => {
+      this.pages.set(
+        this.document().pages.sort(
+          (a: DocumentPageModel, b: DocumentPageModel): number => a.number - b.number,
+        ),
+      );
+    });
+
+    effect(() => {
+      this.draggableService.zoom.set(this.zoom());
+    });
+  }
+
+  protected onPageChange(page: DocumentPageModel): void {
+    this.pages.update((pages: DocumentPageModel[]): DocumentPageModel[] => {
+      return pages.toSpliced(page.number - 1, 1, page);
+    });
+  }
+
   protected onSave(): void {
-    console.log(this.document());
+    console.log({
+      ...this.document(),
+      pages: this.pages(),
+    });
   }
 }

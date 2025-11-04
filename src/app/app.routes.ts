@@ -9,7 +9,8 @@ export const routes: Routes = [
     children: [
       {
         path: 'documents',
-        loadChildren: () => import('@features/documents/common/configs').then((m) => m.routes),
+        loadChildren: (): Promise<Routes> =>
+          import('@features/documents/common/configs').then((m): Routes => m.routes),
       },
       {
         path: 'not-found',

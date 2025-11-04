@@ -4,7 +4,6 @@ import {
   contentChild,
   Signal,
   TemplateRef,
-  viewChild,
 } from '@angular/core';
 import { TuiNavigation } from '@taiga-ui/layout';
 import { ToolbarLeftDirective } from './directives/toolbar-left.directive';

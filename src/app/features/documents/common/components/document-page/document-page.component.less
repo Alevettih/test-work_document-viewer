@@ -1,8 +1,10 @@
 :host {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
+  width: fit-content;
+  margin: 0 auto var(--tui-padding-l);
 
   .page[tuiCardLarge] {
     --t-padding: 0;
@@ -10,7 +12,6 @@
 }
 
 .page {
-  position: relative;
   overflow: hidden;
 }
 

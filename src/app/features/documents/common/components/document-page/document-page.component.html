@@ -1,21 +1,26 @@
-<tui-badged-content>
-  <tui-badge
-    appearance="accent"
-    size="l"
-    iconStart="@tui.hash"
-    tuiSlot="bottom"
-  >
-    {{ page().number }}
-  </tui-badge>
+<cw-annotations-list
+  [annotations]="annotations()"
+  (annotationsChange)="onAnnotationsChange($event)"
+>
+  <tui-badged-content>
+    <tui-badge
+      appearance="accent"
+      size="l"
+      iconStart="@tui.hash"
+      tuiSlot="bottom"
+    >
+      {{ page().number }}
+    </tui-badge>
 
-  <div
-    tuiCardLarge
-    class="page"
-  >
-    <img
-      inert
-      [src]="page().imageUrl"
-      [alt]=""
-    />
-  </div>
-</tui-badged-content>
+    <div
+      tuiCardLarge
+      class="page"
+    >
+      <img
+        inert
+        [src]="page().imageUrl"
+        [alt]=""
+      />
+    </div>
+  </tui-badged-content>
+</cw-annotations-list>

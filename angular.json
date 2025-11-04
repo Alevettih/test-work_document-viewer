@@ -94,6 +94,7 @@
           "options": {
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "less",
+            "browsers": false,
             "assets": [
               {
                 "glob": "**/*",
